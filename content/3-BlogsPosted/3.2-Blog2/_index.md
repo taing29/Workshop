@@ -1,31 +1,70 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Blog 2: Automating data quality control in a Lakehouse architecture with AWS"
+date: 2026-06-30
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+In modern data systems, data is no longer used just for reporting — it also powers analytics and AI/ML applications. As data volumes grow larger and come from an increasing number of sources, ensuring **data quality** becomes essential to maintaining the reliability of the entire system. Even a small amount of incorrect or missing data can affect dashboards, Machine Learning models, or business decisions.
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+In this article, AWS introduces how to combine **Amazon S3 Tables**, **Apache Iceberg**, **AWS Glue Data Quality**, and **Amazon SageMaker Unified Studio** to build an automated data quality checking process within a Lakehouse architecture.
 
-Key points to know:
+**Data quality is no longer a final checkpoint — it is integrated directly into the data processing pipeline.**
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+## Automating Data Quality Checks
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+**AWS Glue Data Quality** allows you to define data validation rules and run them automatically every time new data enters the system.
 
-...Image...
+Some common rules include:
 
-...Link...
+- Values must not be NULL.
+- No duplicate data.
+- Correct data types.
+- Values fall within an allowed range.
+- Compliance with business rules.
 
-...Guide...
+Checks are performed directly within the pipeline, helping to catch issues before the data is used for reporting or analysis.
+
+## Amazon S3 Tables and Apache Iceberg
+
+AWS uses **Amazon S3 Tables** and **Apache Iceberg** to store and manage data using the Lakehouse model.
+
+**Apache Iceberg** provides features such as:
+
+- ACID Transactions
+- Schema Evolution
+- Time Travel
+
+Meanwhile, **Amazon S3 Tables** simplifies the management of data tables on Amazon S3.
+
+## AWS Glue Data Catalog
+
+**AWS Glue Data Catalog** serves as the centralized metadata management hub for all data.
+
+This allows other services within the AWS ecosystem to access the same metadata source, making data management more consistent and unified.
+
+## Amazon SageMaker Unified Studio
+
+Once data has passed quality checks, **SageMaker Unified Studio** supports the process of exploring, analyzing, and preparing data for AI/ML use cases — all within a single working environment.
+
+## Benefits of Integrating Data Quality into the Pipeline
+
+Under AWS's approach, data quality checks are performed during processing rather than as a final step.
+
+This helps to:
+
+- **Detect errors earlier.**
+- **Reduce the risk** of inaccurate data being used.
+- **Increase the reliability** of reports and AI models.
+- **Simplify** the management of data validation rules.
+
+## CONCLUSION
+
+The combination of **Amazon S3 Tables**, **Apache Iceberg**, **AWS Glue Data Quality**, **AWS Glue Data Catalog**, and **Amazon SageMaker Unified Studio** helps build a more reliable data pipeline, while reducing manual review effort and providing strong support for both analytics and AI/ML systems.
+
+![Solution architecture](/Workshop/images/3-BlogsTranslated/Blog2.jpg)
+
+[Facebook Post (AWS Study Group)](https://www.facebook.com/photo/?fbid=2529147894181976&set=gm.2199841160780844&idorvanity=660548818043427)
+
+[Original Post (AWS Big Data Blog)](https://aws.amazon.com/vi/blogs/big-data/accelerate-your-data-quality-journey-for-lakehouse-architecture-with-amazon-sagemaker-apache-iceberg-on-aws-amazon-s3-tables-and-aws-glue-data-quality/)

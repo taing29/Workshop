@@ -1,22 +1,13 @@
 ---
-title: "Các bài blogs đã đăng"
+title: "Các bài blogs đã dịch"
 date: 2024-01-01
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)
+Bài blog này giới thiệu cách thiết lập kiến trúc **failover tự động giữa nhiều Region** cho các ứng dụng hướng sự kiện (event-driven) trên nền tảng AWS. Bạn sẽ khám phá cách kết hợp **Amazon EventBridge, API Gateway và Route 53** để đảm bảo tính sẵn sàng cao (HA) và khả năng phục hồi sau thảm họa (DR) một cách hiệu quả. 
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
-
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
-
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+###  [Blog 2 - Tự động hóa kiểm soát chất lượng dữ liệu trong kiến trúc Lakehouse với AWS](3.2-Blog2/)
+Bài viết này giới thiệu cách xây dựng **quy trình kiểm tra chất lượng dữ liệu tự động** cho kiến trúc Lakehouse bằng các dịch vụ của AWS. Bạn sẽ tìm hiểu cách kết hợp **Amazon S3 Tables, Apache Iceberg, AWS Glue Data Quality, AWS Glue Data Catalog và Amazon SageMaker Unified Studio** để kiểm tra dữ liệu ngay trong quá trình nạp dữ liệu, phát hiện lỗi trước khi ảnh hưởng đến dashboard, mô hình ML hoặc các quyết định kinh doanh.

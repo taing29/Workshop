@@ -1,31 +1,33 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: "Blog 1: Multi-Region event-driven failover architecture with Amazon EventBridge and Route 53"
+date: 2026-06-03
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+A new **AWS Compute Blog** post shares how to build an **automated multi-region failover architecture** for event-driven applications using **Amazon EventBridge**, **Amazon API Gateway**, and **Amazon Route 53**. This solution is essential for ensuring **High Availability (HA)** and **Disaster Recovery (DR)** for critical systems.
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+**Key Highlights:**
 
-Key points to know:
+*   **Active-Passive Multi-Region Setup**: The architecture implements an active-passive model where **Amazon Route 53** uses health checks to monitor regional endpoints and automatically redirect traffic to the secondary region during a failure without manual intervention.
+*   **Regional Independence**: To optimize latency, events are processed entirely within the region where they are initiated. Regions operate independently during normal conditions.
+*   **Real-time Data Synchronization**: The solution utilizes **Amazon DynamoDB Global Tables** to automatically replicate data across regions, ensuring data remains available and consistent during a failover.
+*   **Consistent Infrastructure Deployment**: By using **AWS SAM** and **CloudFormation**, the infrastructure stack—including API Gateway, EventBridge, SQS, and Lambda—is modularized, making it easy to replicate identically across multiple regions.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+**Practical Implementation Flow:**
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+*   **Deploy Primary Stack**: Initialize the foundational resources in the primary region, including the EventBridge bus, API Gateway, and a Route 53 Health Check configured with the **PRIMARY** failover routing type.
+*   **Deploy Secondary Stack**: Create an identical stack in the secondary region, but configure the Route 53 record as **SECONDARY** and link it to the existing DynamoDB Global Table.
+*   **Event Processing Flow**: The processing pipeline follows this path: API Gateway receives the event → EventBridge evaluates and routes it → SQS stores the event in a queue → Lambda consumes and processes the event → the result is written to DynamoDB.
+*   **Simulate Automated Failover**: You can test the system by deleting the API Gateway stage in the primary region. It takes approximately **90 seconds** (three 30-second checks) for the Route 53 health check to detect the failure and automatically redirect all traffic to the secondary region.
 
-...Image...
+**Conclusion:**
 
-...Link...
+**Route 53 health-based failover** is a powerful mechanism that provides maximum operational flexibility, supporting both **planned maintenance** and **unplanned regional outages** for enterprise applications. This approach is highly recommended for those building event-driven architectures that require high availability or multi-region HA/DR solutions on AWS.
 
-...Guide...
+![Solution Diagram](/Workshop/images/3-BlogsTranslated/Blog1.png)
+
+[Facebook Post (AWS Study Group)](https://www.facebook.com/photo?fbid=2216858689065550&set=gm.2174291026669191&idorvanity=660548818043427)
+
+[Original Post (AWS Compute Blog)](https://aws.amazon.com/blogs/compute/multi-region-event-driven-failover-architecture-with-amazon-eventbridge-and-route-53/)
