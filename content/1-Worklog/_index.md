@@ -28,4 +28,6 @@ Throughout **11 weeks** of participating in the **First Cloud AI Journey** progr
 
 **Week 10:** [Working with AWS Managed Microsoft AD, AWS Lambda, and monitoring infrastructure using Amazon CloudWatch and Grafana.](1.10-week10/)
 
-**Week 11:** [Coming soon...](1.11-week11/)
+**Week 11:** [Designing the ReviewSentinel system architecture, security model, data model, and preparing the AWS infrastructure for deployment.](1.11-week11/)
+
+**Week 12:** [Deploying the complete ReviewSentinel serverless application on AWS, integrating backend and frontend services, and performing end-to-end system testing.](1.12-week12/)

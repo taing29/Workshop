@@ -1,57 +1,32 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
+date: 2026-07-13
 weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-
-
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện kiến trúc tổng thể của hệ thống ReviewSentinel trên nền tảng AWS.
+* Thiết kế mô hình bảo mật, mô hình dữ liệu và đặc tả các thành phần xử lý của hệ thống.
+* Chuẩn bị hạ tầng và môi trường phát triển để sẵn sàng triển khai dự án trong các tuần tiếp theo.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------ | --------------- | -------------- |
+| Hoàn thiện kiến trúc hệ thống ReviewSentinel <br> - Rà soát kiến trúc tổng thể <br> - Xác định các dịch vụ AWS sử dụng <br> - Hoàn thiện luồng xử lý dữ liệu | 13/07/2026 | 13/07/2026 | AWS Study Group |
+| Thiết kế mô hình bảo mật <br> - Thiết kế Amazon Cognito User Pool <br> - Xây dựng cơ chế xác thực JWT với API Gateway <br> - Thiết kế IAM Role theo nguyên tắc Least Privilege | 14/07/2026 | 14/07/2026 | AWS Study Group |
+| Thiết kế mô hình dữ liệu <br> - Thiết kế bảng DynamoDB (Reviews, Products, Users) <br> - Xây dựng Primary Key, GSI và các mẫu truy vấn <br> - Lập kế hoạch sử dụng Amazon S3 và Event Notification | 15/07/2026 | 15/07/2026 | AWS Study Group |
+| Thiết kế Lambda Functions và chuẩn bị hạ tầng <br> - Xây dựng đặc tả cho review_processor, sentiment_analyzer và api_handler <br> - Xác định Input/Output, Error Handling <br> - Chuẩn bị S3 Bucket, DynamoDB và môi trường phát triển | 16/07/2026 | 16/07/2026 | AWS Study Group |
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thiện kiến trúc tổng thể của hệ thống **ReviewSentinel**, bao gồm các thành phần Amazon API Gateway, Amazon Cognito, AWS Lambda, Amazon DynamoDB, Amazon S3, Amazon Comprehend, Amazon Bedrock và Amazon CloudWatch, đồng thời xác định rõ luồng xử lý dữ liệu giữa các dịch vụ.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thiết kế mô hình bảo mật cho hệ thống bằng Amazon Cognito kết hợp JWT Authentication và IAM Role theo nguyên tắc **Least Privilege**, đồng thời xác định các yêu cầu bảo mật như mã hóa dữ liệu, kiểm soát quyền truy cập và quản lý log.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hoàn thành thiết kế cơ sở dữ liệu trên Amazon DynamoDB với các bảng **Reviews**, **Products** và **Users**, bao gồm Primary Key, Global Secondary Index (GSI) và các mẫu truy vấn phục vụ quá trình phân tích dữ liệu và xử lý đánh giá.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng đặc tả cho các Lambda Function chính gồm **review_processor**, **sentiment_analyzer** và **api_handler**, xác định cơ chế kích hoạt, Input/Output, quy trình xử lý lỗi và chuẩn bị các thành phần hạ tầng như Amazon S3 Bucket, DynamoDB để sẵn sàng triển khai trong giai đoạn tiếp theo.

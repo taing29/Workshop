@@ -28,4 +28,6 @@ Trong suốt **11 tuần** tham gia chương trình **First Cloud AI Journey**, 
 
 **Tuần 10:** [Thực hành AWS Managed Microsoft AD, AWS Lambda và giám sát hệ thống bằng CloudWatch kết hợp Grafana.](1.10-week10/)
 
-**Tuần 11:** [Đang cập nhật...](1.11-week11/)
+**Tuần 11:** [Thiết kế kiến trúc, mô hình bảo mật, cơ sở dữ liệu và chuẩn bị hạ tầng cho dự án ReviewSentinel.](1.11-week11/)
+
+**Tuần 12:** [Triển khai hoàn chỉnh hệ thống ReviewSentinel, tích hợp các dịch vụ AWS và kiểm thử quy trình xử lý dữ liệu từ đầu đến cuối.](1.12-week12/)
