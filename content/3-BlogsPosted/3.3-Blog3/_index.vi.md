@@ -1,6 +1,6 @@
 ---
 title: "Blog 3: Artera và bài toán ứng dụng AWS để tăng tốc chẩn đoán ung thư tuyến tiền liệt"
-date: 2026-06-03
+date: 2026-06-18
 weight: 3
 chapter: false
 pre: " <b> 3.2. </b> "
