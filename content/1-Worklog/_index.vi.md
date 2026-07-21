@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Trong suốt **11 tuần** tham gia chương trình **First Cloud AI Journey**, tôi đã tìm hiểu và thực hành các dịch vụ cốt lõi của Amazon Web Services (AWS), từ quản lý hạ tầng, mạng, bảo mật đến triển khai và giám sát ứng dụng trên nền tảng đám mây.
+Trong suốt **12 tuần** tham gia chương trình **First Cloud AI Journey**, tôi đã tìm hiểu và thực hành các dịch vụ cốt lõi của Amazon Web Services (AWS), từ quản lý hạ tầng, mạng, bảo mật đến triển khai và giám sát ứng dụng trên nền tảng đám mây.
 
 **Tuần 1:** [Làm quen với AWS, tạo tài khoản AWS Free Tier và tìm hiểu các dịch vụ cơ bản.](1.1-week1/)
 

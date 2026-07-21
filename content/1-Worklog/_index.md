@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Throughout **11 weeks** of participating in the **First Cloud AI Journey** program, I learned and gained hands-on experience with core Amazon Web Services (AWS) services, ranging from infrastructure management, networking, and security to application deployment and cloud monitoring.
+Throughout **12 weeks** of participating in the **First Cloud AI Journey** program, I learned and gained hands-on experience with core Amazon Web Services (AWS) services, ranging from infrastructure management, networking, and security to application deployment and cloud monitoring.
 
 **Week 1:** [Getting started with AWS, creating an AWS Free Tier account, and exploring core AWS services.](1.1-week1/)
 
