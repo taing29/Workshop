@@ -1,59 +1,28 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-06-29
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu cách cấu hình và tối ưu Amazon CloudFront kết hợp với Lambda@Edge.
+* Thực hành triển khai các tính năng nâng cao của CloudFront nhằm cải thiện hiệu năng và bảo mật cho website.
+* Làm quen với Amazon WorkSpaces và quy trình triển khai môi trường máy tính ảo trên AWS.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------ | --------------- | -------------- |
+| Tìm hiểu Amazon CloudFront và Lambda@Edge <br> - Tạo CloudFront Distribution <br> - Thực hiện Distribution Invalidations <br> - Cấu hình Error Page Custom <br> - Tạo Origin Group <br> - Cấu hình Response Headers và Cache Behavior <br> - Tạo và triển khai Lambda@Edge Function <br> - Theo dõi Metrics và Logs | 29/06/2026 | 01/07/2026 | <https://000130.awsstudygroup.com/> |
+| Tìm hiểu Windows Workloads trên AWS <br> - Tạo VPC, Subnets, Internet Gateway, NAT Gateway và EC2 <br> - Triển khai Amazon WorkSpaces <br> - Truy cập WorkSpaces thông qua trình duyệt và ứng dụng WorkSpaces Client | 02/07/2026 | 02/07/2026 | <https://000093.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu quy trình cấu hình Amazon CloudFront, bao gồm tạo Distribution, thiết lập Cache Behavior, Response Headers, Origin Group và tùy chỉnh Error Page để tối ưu việc phân phối nội dung.
+* Thực hành triển khai Lambda@Edge Function và tích hợp với CloudFront nhằm xử lý yêu cầu tại các Edge Location, góp phần cải thiện hiệu năng và khả năng tùy biến của hệ thống.
+* Nắm được cách theo dõi Metrics và Logs của CloudFront để giám sát hoạt động, đánh giá hiệu năng và hỗ trợ xử lý sự cố.
+* Thực hành xây dựng hạ tầng cho Amazon WorkSpaces bằng cách cấu hình VPC, Subnets, Internet Gateway, NAT Gateway và EC2 trước khi triển khai môi trường máy tính ảo.
+* Hiểu quy trình triển khai, truy cập và sử dụng Amazon WorkSpaces thông qua trình duyệt và ứng dụng WorkSpaces Client, đồng thời nắm được các thành phần hạ tầng cần thiết để vận hành dịch vụ.

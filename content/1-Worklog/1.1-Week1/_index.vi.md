@@ -1,19 +1,16 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-05-05
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-<!-- {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}} -->
-
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản.
+* Làm quen với chương trình thực tập First Cloud AI Journey và môi trường AWS.
+* Tạo tài khoản AWS Free Tier và tìm hiểu các dịch vụ AWS cơ bản.
+* Nắm được chức năng và ứng dụng của một số dịch vụ phổ biến như Amazon EC2, Amazon Bedrock Playground, AWS Budgets, AWS Lambda và Amazon RDS.
 
 ### Các công việc cần triển khai trong tuần này:
  Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
@@ -26,13 +23,7 @@ pre: " <b> 1.1. </b> "
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-
-
-
+* Hoàn thành việc tạo tài khoản AWS Free Tier và làm quen với giao diện AWS Management Console.
+* Hiểu được mục đích và cách sử dụng cơ bản của các dịch vụ Amazon EC2, Amazon Bedrock Playground, AWS Budgets, AWS Lambda Web App và Amazon RDS.
+* Nắm được vai trò của các dịch vụ trên trong việc xây dựng và quản lý hệ thống trên nền tảng AWS.
+* Tham gia sự kiện của chương trình để hiểu rõ hơn về lộ trình học tập và định hướng thực tập.

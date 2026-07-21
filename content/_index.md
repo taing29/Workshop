@@ -8,9 +8,6 @@ chapter: false
     
 # Internship Report
 
-<!-- {{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}} -->
 
 ### Student Information:
 &emsp; **Full Name:** Nguyen Huu Tai
@@ -31,7 +28,9 @@ chapter: false
 
 &emsp; **Internship Duration:** From 05/05/2026 to 07/30/2026
 
-![Your profile picture](/images/avatar.png)
+<img src="images/avatar.png" alt="Your profile picture" width="300">
+
+<!-- ![Your profile picture](images/avatar.png) -->
 
 ### Report Content
 

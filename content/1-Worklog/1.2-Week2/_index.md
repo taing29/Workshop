@@ -1,57 +1,28 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about AWS services for cost management, identity and access management, and networking.
+* Practice configuring AWS Budgets, AWS Identity and Access Management (IAM), and Amazon Virtual Private Cloud (VPC).
+* Understand how to securely deploy and manage AWS resources following best practices.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Completed This Week:
 
+| Task | Start Date | Completion Date | Reference Material |
+| --- | ------------ | --------------- | -------------- |
+| Learn AWS Budgets <br> - Create Cost Budget, Usage Budget, RI Budget, and Savings Plans Budget | 05/11/2026 | 05/11/2026 | <https://000007.awsstudygroup.com/> |
+| Learn AWS Identity and Access Management (IAM) <br> - Create IAM Groups, IAM Users, and IAM Roles <br> - Practice switching roles (Switch Role) | 05/12/2026 | 05/12/2026 | <https://000002.awsstudygroup.com/> |
+| Learn Amazon Virtual Private Cloud (VPC) <br> - Configure VPC Firewall (Security Groups) <br> - Launch Amazon EC2 Instances <br> - Set up a Site-to-Site VPN connection <br> - Learn Infrastructure as Code (IaC) Templates | 05/13/2026 | 05/13/2026 | <https://000003.awsstudygroup.com/> |
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned how to use AWS Budgets to monitor cloud costs and configure different types of budgets, including Cost, Usage, RI, and Savings Plans Budgets.
+* Gained a solid understanding of AWS IAM by creating users, groups, and roles, as well as managing permissions through role switching.
+* Understood the fundamentals of Amazon VPC, including firewall configuration, EC2 deployment, and Site-to-Site VPN connectivity.
+* Became familiar with Infrastructure as Code (IaC) concepts and the basic process of provisioning and managing AWS infrastructure through templates.

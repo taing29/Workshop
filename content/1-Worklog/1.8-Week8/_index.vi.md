@@ -1,59 +1,28 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu dịch vụ Amazon ElastiCache và cách sử dụng bộ nhớ đệm để tăng hiệu năng ứng dụng.
+* Thực hành sử dụng AWS SDK để kết nối và thao tác dữ liệu trên ElastiCache.
+* Tìm hiểu cách triển khai website tĩnh trên Amazon S3 và phân phối nội dung bằng Amazon CloudFront.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------ | --------------- | -------------- |
+| Tìm hiểu Amazon ElastiCache <br> - Tạo ElastiCache Cluster <br> - Sử dụng AWS SDK để đọc và ghi dữ liệu trên ElastiCache | 23/06/2026 | 23/06/2026 | <https://000061.awsstudygroup.com/> |
+| Tìm hiểu Amazon CloudFront <br> - Tạo Amazon S3 Bucket <br> - Upload website mẫu (index.html) lên S3 <br> - Cấu hình Amazon CloudFront để phân phối nội dung từ S3 | 24/06/2026 | 24/06/2026 | <https://000094.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được vai trò của Amazon ElastiCache trong việc cải thiện hiệu năng ứng dụng bằng cách lưu trữ dữ liệu trên bộ nhớ đệm, giúp giảm tải cho cơ sở dữ liệu và rút ngắn thời gian phản hồi.
+* Thực hành tạo ElastiCache Cluster và sử dụng AWS SDK để kết nối, thực hiện các thao tác đọc, ghi và quản lý dữ liệu trên ElastiCache từ ứng dụng.
+* Nắm được quy trình triển khai website tĩnh trên Amazon S3, bao gồm tạo Bucket, tải nội dung website lên S3 và cấu hình các thiết lập cần thiết để website có thể truy cập công khai.
+* Thực hành cấu hình Amazon CloudFront để phân phối nội dung từ Amazon S3, đồng thời hiểu được vai trò của CDN trong việc tăng tốc độ truy cập, giảm độ trễ và cải thiện trải nghiệm người dùng.
+* Hiểu cách kết hợp Amazon S3, Amazon CloudFront và Amazon ElastiCache để xây dựng một hệ thống lưu trữ, phân phối nội dung và tối ưu hiệu năng ứng dụng trên nền tảng AWS.
