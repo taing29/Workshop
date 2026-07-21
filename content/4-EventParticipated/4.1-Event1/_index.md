@@ -1,126 +1,171 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "FCAJ Community Day - 2026/05/09"
+date: 2026-05-09
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+![Ảnh](/Workshop/images/4-EventParticipated/Event1.jpg)
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### **Speaker 1: Huynh Hoang Long**  
+#### **Topic:** Addicted to Learning Like You're Addicted to Social Media
 
-### Event Objectives
+### Main Objectives of the Talk
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
-
-### Speakers
-
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- Explain why the human brain is more easily attracted to social media than to studying.
+- Share psychological and neuroscience techniques to turn learning into an addictive habit similar to scrolling social media.
+- Provide practical “brain hacks” to help learners maintain long-term motivation.
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### 1. Why Does the Brain Choose Social Media Over Studying?
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- **Social Media**: Fast rewards, constant novelty, and low effort.
+- **Studying**: Slow results, requires long periods of focus, and offers almost no immediate rewards.
 
-#### Transitioning to modern application architecture – Microservices
+#### 2. Turn Knowledge Into a Dopamine Reward System
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Dopamine is not released when receiving the reward, but during the **anticipation** phase.
+- The most important factor: **Variable Reward**.
+- Build a new learning loop so the brain continuously expects and feels excited about learning.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### 3. Three Brain Hacks to Make Learning as Addictive as Gaming
 
-#### Domain-Driven Design (DDD)
+- Use **Fear of Loss**.
+- “Trick” the **amygdala** (the brain’s emotional processing system).
+- Create **instant feedback** during the learning process.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### 4. Steal the Secret Formula Social Media Uses to Hook You
 
-#### Event-Driven Architecture
+- Analyze the mechanisms TikTok, Instagram, and Facebook use to retain users.
+- Apply similar principles to design learning processes and personal development.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+### What I Learned
 
-#### Compute Evolution
+- Understood the mechanism of **dopamine** and why social media is more addictive than traditional learning.
+- Effective learning is not about forcing long focus sessions, but about **designing the learning environment** to create continuous excitement and rewards.
+- The three brain hacks (**fear of loss, trick the amygdala, instant feedback**) are highly practical tools that can be applied immediately to myself and my team.
+- The “variable reward” principle can be used in application design or internal training processes to increase user/employee engagement.
+- Recognized the importance of **Learning Experience Design** rather than focusing only on content.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+---
 
-#### Amazon Q Developer
+### **Speaker 2: Nguyen Tuan Thinh**  
+#### **Topic:** Automated Prompt Engineering: Enhancing LLM Output Quality
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### Main Objectives of the Talk
 
-### Key Takeaways
+- Explain the importance of Prompt Engineering in effective communication with AI.
+- Guide how to build high-quality prompts to improve output from Large Language Models (LLM).
+- Introduce a real-world solution for automating Prompt Engineering.
 
-#### Design Mindset
+### Key Highlights
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### 1. The Art of Communicating with AI
 
-#### Technical Architecture
+- **Why Prompt Engineering Matters**: Poor prompts lead to unsatisfactory results.
+- **Components of an Excellent Prompt**: Role, Instruction, Context, Input Data, Output Format, Examples, and Constraints.
+- **Token Economics**: Understanding AI costs to optimize prompts economically.
+- **Advanced Techniques**: Chain-of-Thought (CoT), Tree-of-Thought (ToT), and other reasoning methods.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+#### 2. Real Project: Proptimizer
 
-#### Modernization Strategy
+- Built an **Automated Prompt Engineering** tool using Serverless architecture.
+- Automatically optimizes prompts to significantly improve LLM output quality and efficiency.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+### What I Learned
 
-### Applying to Work
+- Prompt Engineering is not just “writing commands” but a **systematic art of communication** that requires clear thinking and logical structure.
+- Understanding **Token Economics** helps control costs when working with AI at scale.
+- Advanced techniques like Chain-of-Thought and Tree-of-Thought enable LLMs to reason more logically and produce more accurate results.
+- Automated Prompt Engineering (Proptimizer) is an important trend that saves time and boosts productivity.
+- Serverless architecture is an excellent choice for building flexible and cost-effective AI tools.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+---
 
-### Event Experience
+### **Speaker 3: Khang Nguyen**  
+#### **Topic:** AI-Ready Fresher - Skill and Mindset
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+### Main Objectives of the Talk
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Help students and fresh graduates understand how AI is changing the workplace and required skills.
+- Build the right mindset and attitude to become “AI-Ready” young professionals.
+- Emphasize the combination of technical skills and mindset for sustainable development in the AI era.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+### Key Highlights
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### 1. Real-World Observation: How Has AI Changed You Lately?
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Sharing noticeable changes AI has brought to daily life and work.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+#### 2. How AI Has Changed Us
 
-#### Some event photos
-*Add your event photos here*  
+- “You can outsource your thinking, but you cannot outsource your understanding.”
+- AI can perform tasks faster, but humans must still deeply understand the core problem.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+#### 3. AI Amplifies
+
+- AI does not replace humans but amplifies our capabilities when used correctly.
+
+#### 4. Growth Mindset – Always Ask “Why”
+
+- Question everything.
+- Embrace mistakes and learn from them.
+- Stay hungry for continuous learning.
+
+#### 5. Integrity
+
+- Maintain ethics and honesty in an era where AI can easily generate content.
+
+#### 6. Five Values of Work
+
+- Salary, Experience, Network, Knowledge, and Growth.
+
+#### 7. How Companies Evaluate You
+
+- Attitude, Competence, Experience, Exposure, and Potential.
+
+### What I Learned
+
+- AI does not replace humans but serves as a tool to amplify capabilities — provided we deeply understand the fundamentals.
+- Growth mindset and integrity are the two most important factors for success in the AI era.
+- Companies evaluate candidates not only on hard skills but also on attitude, potential, and learning ability.
+- We must balance using AI to increase productivity with continuously training our own thinking.
+
+---
+
+### **Speaker 4: Thao**  
+#### **Topic:** BMAD Method
+
+### Main Objectives of the Talk
+
+- Clarify the limitations of “Vibe Coding” when building real software.
+- Introduce the BMAD Method — a systematic approach to move from free prompting to professional Context Engineering.
+- Guide how to use BMAD Method to create production-ready software with higher quality.
+
+### Key Highlights
+
+#### 1. Limitations of Vibe Coding
+
+- Vibe Coding (coding based on inspiration and free prompting) is only suitable for demos or prototypes.
+- It cannot produce production-ready software due to lack of structure, high error rate, and difficulty in scaling.
+
+#### 2. Transition from Free Prompting to Context Engineering
+
+- Compare the benefits of the BMAD Method over traditional vibe coding.
+- BMAD provides better context control, reduces hallucination, and improves output quality.
+
+#### 3. Introduction to the BMAD Method
+
+- **Planning**: Brainstorm with AI to create detailed product requirement documents (PRD / VOD).
+- **Architecting**: Design a proper and clear system architecture.
+- **Shredding**: Break down documents into small Epics and User Stories so AI can understand them easily and avoid hallucination.
+- **Multi-Agent**: Use multiple specialized AI agents playing roles such as Product Manager (PM), Architect, Scrum Master, Developer, and Reviewer to collaborate on the project systematically.
+
+### What I Learned
+
+- “Vibe Coding” is fast but not sustainable for real projects, often leading to poor quality and maintenance issues.
+- Context Engineering is far more important than random prompting. The BMAD Method is a structured framework that elevates how we work with AI.
+- Breaking down tasks (Shredding) and using Multi-Agent significantly reduces LLM hallucination.
+- Building a clear process (Planning → Architecting → Shredding → Multi-Agent) is the key to creating professional software with AI support.

@@ -1,126 +1,161 @@
 ---
-title: "Event 2"
-date: 2024-01-01
-weight: 1
+title: "FCAJ Community Day - 2026/05/23"
+date: 2026-05-23
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+![Ảnh](/Workshop/images/4-EventParticipated/Event2.jpg)
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### **Speaker 1: Nguyen Gia Hung**  
+#### **Topic:** Labor Market Trends and the Power of Foundations
 
-### Event Objectives
+### Main Objectives of the Talk
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
-
-### Speakers
-
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- Analyze labor market trends under the impact of AI.
+- Clarify the long-term value of foundational knowledge and academic degrees in the rapidly developing AI era.
+- Guide students and fresh graduates on how to prepare to seize new job opportunities.
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+- **AI Paradox**: AI makes software development cheaper and faster, which in turn drives explosive demand for software, creating many new job opportunities — including maintenance and optimization of AI-generated code.
+- **Real-world Requirements from Businesses**: Students should go beyond simple demos or personal projects and build real products that solve specific business problems.
+- **Foundations Remain Essential**: Academic degrees and strong foundational knowledge are still the most critical factors for global competitiveness. AI only acts as an amplifier for those who have solid fundamentals.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+### What I Learned
 
-#### Transitioning to modern application architecture – Microservices
+- AI does not replace humans but is creating more jobs in unexpected ways.
+- Foundational skills are the key to long-term competitiveness.
+- We need to shift our mindset from “just making something” to “creating real solutions that solve actual problems.”
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+---
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+### **Speaker 2: Tinh Truong**  
+#### **Topic:** Context is Everything - Making AI Actually Work For You
 
-#### Domain-Driven Design (DDD)
+### Main Objectives of the Talk
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- Warn about the risks of using AI mechanically without paying attention to context.
+- Emphasize the crucial role of Context Engineering.
+- Encourage building a more professional AI usage mindset.
 
-#### Event-Driven Architecture
+### Key Highlights
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- **Internet Buller**: Copy-pasting code or AI outputs without understanding the context often leads to fragmented systems that do not align with company standards.
+- **The Importance of Deep Context**: Providing domain-specific information instead of generic prompts helps AI deliver more accurate and relevant solutions.
+- **AI Mindset**: We should learn how top-tier tech companies apply AI to real workflows rather than just using it to complete assignments or quick demos.
 
-#### Compute Evolution
+### What I Learned
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+- Context is the deciding factor for successful AI usage.
+- We must deeply understand the problem before using AI, rather than relying on it blindly.
+- Developing a professional AI mindset is essential to create real value in the workplace.
 
-#### Amazon Q Developer
+---
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### **Speaker 3: Pham Nguyen Hai Anh**  
+#### **Topic:** GenAI-Powered Auto Audit for AWS Workload
 
-### Key Takeaways
+### Main Objectives of the Talk
 
-#### Design Mindset
+- Introduce the concept of AI Agents and their potential in process automation.
+- Demonstrate how non-technical users can still harness the power of Generative AI.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+### Key Highlights
 
-#### Technical Architecture
+- **What is an Agent?**: An Agent combines an LLM (brain) with action tools, allowing AI to not only respond but also perform real tasks such as sending emails or scheduling.
+- **Amazon QuickSight**: Enables business users to create reports and analyze complex data from Excel files using natural language.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+### What I Learned
 
-#### Modernization Strategy
+- AI Agents open up far greater automation possibilities compared to simple chat interactions.
+- Low-code/no-code tools like QuickSight help democratize AI across different departments in an organization.
+- Generative AI has huge potential in automating audit and reporting processes.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+---
 
-### Applying to Work
+### **Speaker 4: Nguyen Tuan Thinh**  
+#### **Topic:** CloudFront as Your Foundation
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+### Main Objectives of the Talk
 
-### Event Experience
+- Present CloudFront as a core foundation for performance, cost, and security.
+- Share new features that help businesses operate more stably and efficiently.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+### Key Highlights
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- **Flat-rate Pricing**: A smart pricing model that prevents sudden bill spikes caused by unexpected traffic or DDoS attacks.
+- **Superior Performance**: Leveraging AWS’s internal backbone infrastructure and HTTP/3 significantly improves page load speed (up to 81% reduction).
+- **Strong Security at the Edge**: Supports mTLS for financial applications and VPC Origin to completely hide infrastructure from the public internet.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+### What I Learned
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+- CloudFront has evolved into a powerful foundation not only for speed but also for cost control and security.
+- Flat-rate pricing is an intelligent approach to managing cloud costs.
+- Edge security is a critical trend, especially for sensitive applications.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+---
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+### **Speaker 5: UTMorpho Team**  
+#### **Topic:** Building UTMorpho from Idea to Reality - 36hrs with LotusHacks
 
-#### Some event photos
-*Add your event photos here*  
+### Main Objectives of the Talk
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+- Share the journey of building an AI product in an extremely short time during a Hackathon.
+- Extract practical lessons from building an MVP under pressure.
+
+### Key Highlights
+
+- **UTMorpho Product**: An AI-powered UI editing tool that allows direct interaction on the interface instead of regenerating from scratch.
+- **Multi-Agent Architecture**: Uses three specialized Agents (Vision, Layout, and Design) working collaboratively.
+- **Real-world Lessons**: How to overcome token limits, control AI over-generation, and focus on core features.
+
+### What I Learned
+
+- Building a product quickly requires intense focus on the MVP and core value.
+- Multi-Agent architecture is a powerful approach for solving complex AI problems.
+- Having a clear strategy to manage LLM limitations is essential in real-world development.
+
+---
+
+### **Speaker 6: Duc Dao**  
+#### **Topic:** Non-Determinism of "Deterministic" LLM Settings
+
+### Main Objectives of the Talk
+
+- Clarify that LLMs are not truly deterministic even when parameters are set to “deterministic” mode.
+- Provide practical strategies to handle output variability.
+
+### Key Highlights
+
+- **Probabilistic Nature**: LLMs predict the next token based on probability (Logits).
+- **Optimization Bias**: Cloud providers optimize GPU usage by batching prompts, causing output variation even when Temperature = 0.
+- **Coping Strategies**: Use JSON Mode, self-host models when absolute control is needed, and design systems that can handle unexpected outputs.
+
+### What I Learned
+
+- We should not fully trust the “deterministic” setting of LLMs.
+- Understanding the underlying mechanisms is crucial for building reliable production systems.
+- Always implement validation and fallback mechanisms for AI outputs.
+
+---
+
+### **Speaker 7: Vy Lam**  
+#### **Topic:** Enterprise-Grade Multi-Agent System
+
+### Main Objectives of the Talk
+
+- Share experience in building enterprise-standard Multi-Agent systems.
+- Emphasize security and risk management when deploying AI at scale.
+
+### Key Highlights
+
+- **Solving Real Business Problems**: AI systems help collect and evaluate multi-dimensional data (market, team, IP, etc.) to support investment decisions.
+- **Guardrails & Security**: Establish clear boundaries for Agents and implement audit trails to track all AI actions.
+
+### What I Learned
+
+- In enterprise environments, security and risk control must be the top priority.
+- Audit trails are essential to ensure accountability when using AI Agents.
+- Multi-Agent Systems have great potential but must be carefully and securely designed.
