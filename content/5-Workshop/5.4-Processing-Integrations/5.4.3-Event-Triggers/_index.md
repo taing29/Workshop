@@ -26,6 +26,8 @@ Wire the storage and database events into the Lambda functions so the pipeline r
 6. Add the prefix `uploads/`.
 7. Confirm the recursive invocation warning and add the trigger.
 
+![Guide](/Workshop/images/5-Workshop/event-1.PNG)
+
 ### 2. Wire the DynamoDB stream trigger
 
 1. Open the `review-sentiment-analyzer-analyzer` Lambda.
@@ -33,9 +35,24 @@ Wire the storage and database events into the Lambda functions so the pipeline r
 3. Select **DynamoDB**.
 4. Choose the `Reviews` table.
 5. Keep the batch size at `100` and the starting position at **Latest**.
+
+![Guide](/Workshop/images/5-Workshop/event-2.PNG)
+
 6. Add the filter criteria so the Lambda only fires on `INSERT` events where `ProcessingStatus` is `PENDING`.
+```json
+[
+  {
+    "Pattern": "{  \"eventName\": [\"INSERT\"],  \"dynamodb\": {    \"NewImage\": {      \"ProcessingStatus\": {        \"S\": [\"PENDING\"]      }    }  }}"
+  }
+]
+```
+
+![Guide](/Workshop/images/5-Workshop/event-3.PNG)
+
 7. Enable split batch on error.
 8. Add the trigger.
+
+
 
 ### Notes
 

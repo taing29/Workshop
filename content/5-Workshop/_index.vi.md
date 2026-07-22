@@ -10,9 +10,11 @@ pre: " <b> 5. </b> "
 
 #### Tổng quan
 
-Bộ trang này viết lại hướng dẫn triển khai ReviewSentinal, một ứng dụng AWS serverless phân tích cảm xúc đánh giá sản phẩm, theo đúng bố cục chương và mục giống workshop mẫu.
+Workshop này viết lại hướng dẫn triển khai ReviewSentinal, một ứng dụng AWS serverless phân tích cảm xúc đánh giá sản phẩm, theo đúng bố cục chương và mục giống workshop mẫu.
 
 Hướng dẫn đi theo một luồng triển khai duy nhất: tạo lớp dữ liệu nền, thiết lập IAM và Lambda, kết nối API và xác thực, kiểm tra hệ thống, rồi dọn dẹp để trả lại tài khoản về trạng thái an toàn.
+
+**Demo link:** [demo](https://www.phucpham2911.dpdns.org/)
 
 #### Nội dung
 

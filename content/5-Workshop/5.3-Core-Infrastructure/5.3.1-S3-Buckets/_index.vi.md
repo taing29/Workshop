@@ -19,8 +19,14 @@ Tạo bucket upload thô trước. Ứng dụng upload file review trực tiếp
 2. Nhập tên bucket theo đúng AWS account ID của bạn.
 3. Chọn **Asia Pacific (Singapore) ap-southeast-1**.
 4. Giữ **ACLs disabled**.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-1.PNG)
+
 5. Để **Block all public access** bật.
 6. Bật **Bucket Versioning**.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-2.PNG)
+
 7. Bật mã hóa mặc định với **SSE-S3**.
 8. Tạo bucket.
 
@@ -31,6 +37,8 @@ Tạo bucket upload thô trước. Ứng dụng upload file review trực tiếp
 3. Áp dụng cho toàn bộ object.
 4. Expire current versions sau 90 ngày.
 5. Xóa noncurrent versions vĩnh viễn sau 30 ngày.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-4.PNG)
 
 ### Cấu hình CORS
 
@@ -49,6 +57,8 @@ Tạo bucket upload thô trước. Ứng dụng upload file review trực tiếp
 ]
 ```
 4. Lưu lại.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-5.PNG)
 
 ### Ghi chú
 

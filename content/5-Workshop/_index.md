@@ -14,6 +14,8 @@ This workshop provides the guide for **ReviewSentinal**, an AWS serverless produ
 
 The guide follows one deployment path end to end: provision the core data layer, create the Lambda roles and functions, wire the API and authentication layer, validate the stack, and finish with cleanup steps that return the account to a safe state.
 
+**Demo link:** [demo](https://www.phucpham2911.dpdns.org/)
+
 #### Content
 
 1. [Workshop overview](5.1-Workshop-overview/)

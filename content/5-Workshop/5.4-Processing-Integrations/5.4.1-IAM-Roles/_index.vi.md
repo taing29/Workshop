@@ -31,9 +31,15 @@ Tạo một IAM role tối thiểu quyền cho từng Lambda function của Revi
 2. Chọn **Create role**.
 3. Chọn **AWS service** làm trusted entity.
 4. Chọn use case **Lambda**.
+
+![Guide](/Workshop/images/5-Workshop/iam-1.PNG)
+
 5. Não attach managed policy nào ở bước này.
 6. Đặt tên role là `review-processor-role` rồi tạo role.
 7. Mở role và tạo inline policy trong tab **JSON**.
+
+![Guide](/Workshop/images/5-Workshop/iam-2.PNG)
+
 8. Dán policy của processor sau đây và thay `<ACCOUNT_ID>` bằng account ID thật:
 ```json
 {
@@ -75,6 +81,9 @@ Tạo một IAM role tối thiểu quyền cho từng Lambda function của Revi
   ]
 }
 ```
+
+![Guide](/Workshop/images/5-Workshop/iam-3.PNG)
+
 9. Lưu policy với tên `review-processor-policy`.
 
 ### 2. Tạo role cho sentiment analyzer
@@ -200,6 +209,8 @@ Tạo một IAM role tối thiểu quyền cho từng Lambda function của Revi
 }
 ```
 5. Thay `<ACCOUNT_ID>` và secret ARN bằng giá trị thật trong policy.
+
+![Guide](/Workshop/images/5-Workshop/iam-4.PNG)
 
 ### Ghi chú
 

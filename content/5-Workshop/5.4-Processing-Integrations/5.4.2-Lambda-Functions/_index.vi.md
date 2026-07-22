@@ -1,86 +1,112 @@
 ---
-title: "5.4.2 Lambda function"
+title: "5.4.2 Các hàm Lambda"
 weight: 2
 ---
 
-# Lambda function cho ReviewSentinal
+# Tạo các hàm Lambda cho ReviewSentinal
 
 ## Tổng quan
 
-Tạo ba Lambda handler để xử lý luồng nhận dữ liệu, phân tích và API. Ba function dùng chung một deployment package, nhưng có cấu hình runtime, memory, timeout và biến môi trường khác nhau.
+Trong phần này, bạn sẽ tạo ba hàm **AWS Lambda** đảm nhiệm quy trình tiếp nhận dữ liệu, phân tích cảm xúc và cung cấp API cho ReviewSentinal.
 
-### Các function cần tạo
+Cả ba Lambda đều sử dụng cùng một **deployment package**, tuy nhiên mỗi hàm sẽ có **handler**, **runtime settings**, **environment variables** và **trigger** riêng.
+
+### Các hàm cần tạo
 
 1. `review-sentiment-analyzer-processor`
 2. `review-sentiment-analyzer-analyzer`
 3. `review-sentiment-analyzer-api`
 
-### Thiết lập chung
+### Cấu hình chung
 
-- Runtime: Python 3.11
-- Architecture: x86_64
-- Source package: file chung `01_lambda_functions.py`
-- Dead-letter queue: `lambda-dlq`
+- Runtime: **Python 3.11**
+- Architecture: **x86_64**
+- Source package: tệp `01_lambda_functions.py`
+- Dead-letter queue (DLQ): `lambda-dlq`
 
-## Từng bước
+## Các bước thực hiện
 
-### 1. Tạo function processor
+### 1. Tạo hàm Processor
 
-1. Mở **Lambda** và chọn **Create function**.
+1. Mở **AWS Lambda** và chọn **Create function**.
 2. Chọn **Author from scratch**.
-3. Đặt tên `review-sentiment-analyzer-processor`.
-4. Chọn Python 3.11 và architecture x86_64.
-5. Dùng existing role `review-processor-role`.
-6. Tạo function.
-7. Dán toàn bộ nội dung `01_lambda_functions.py` vào tab code.
-8. Deploy code.
-9. Set handler thành `lambda_function.lambda_handler_review_processor`.
-10. Timeout 1 phút, memory 512 MB.
-11. Thêm các biến môi trường `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE`, `RAW_BUCKET`.
-12. Cấu hình DLQ bất đồng bộ dùng `lambda-dlq`.
+3. Đặt tên hàm `review-sentiment-analyzer-processor`.
+4. Chọn **Python 3.11** và kiến trúc mặc định **x86_64**.
 
-### 2. Tạo function analyzer
+![Guide](/Workshop/images/5-Workshop/lambda-1.PNG)
 
-1. Tạo Lambda thứ hai tên `review-sentiment-analyzer-analyzer`.
-2. Dùng Python 3.11 và role `sentiment-analyzer-role`.
-3. Dán lại cùng package và deploy.
-4. Set handler thành `lambda_function.lambda_handler_sentiment_analyzer`.
-5. Timeout 2 phút, memory 1024 MB.
-6. Thêm các biến `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `OPENROUTER_MODEL`, `OPENROUTER_API_KEY_SECRET_NAME`.
-   **Quan trọng**: Function này giờ sử dụng Amazon SES để gửi email thay vì SNS, vì vậy không cần biến `SNS_TOPIC_ARN` nữa.
-7. Dùng cùng DLQ.
+5. Sử dụng IAM role hiện có `review-processor-role`.
+6. Chọn **Create function**.
+7. Thay thế toàn bộ mã mặc định bằng nội dung của tệp `01_lambda_functions.py`.
+8. Chọn **Deploy**.
 
-### 3. Tạo function API
+![Guide](/Workshop/images/5-Workshop/lambda-2.PNG)
 
-1. Tạo Lambda thứ ba tên `review-sentiment-analyzer-api`.
-2. Dùng Python 3.11 và role `api-handler-role`.
-3. Dán cùng package và deploy.
-4. Set handler thành `lambda_function.lambda_handler_api`.
-5. Timeout 30 giây, memory 256 MB.
-6. Thêm `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE`, `RAW_BUCKET`, `CORS_ALLOWED_ORIGIN`.
-7. Dùng cùng DLQ.
+9. Mở **Runtime settings** và đặt **Handler** thành `lambda_function.lambda_handler_review_processor`.
 
-### Luồng xử lý hoàn thành phân tích (đã cập nhật)
+![Guide](/Workshop/images/5-Workshop/lambda-3.PNG)
 
-Function analyzer hiện thực hiện luồng này khi xử lý reviews:
-1. Xử lý một review từ stream
-2. Cập nhật bản ghi review với kết quả phân tích cảm xúc
-3. Tăng các bộ đếm phân tích (ProcessedReviews, Positive/Neutral/Negative)
-4. Kiểm tra xem tất cả reviews cho một analysis đã được xử lý chưa (ProcessedReviews == TotalReviews)
-5. Nếu CHƯA hoàn thành: Dừng xử lý
-6. Nếu HOÀN THÀNH:
-   - Cập nhật trạng thái analysis thành COMPLETED
-   - Đặt timestamp CompletedAt
-   - Gửi email hoàn thành qua Amazon SES tới địa chỉ email của người dùng
-   - Dừng xử lý
+10. Đặt **Timeout** là **1 minute** và **Memory** là **512 MB**.
 
-### Ghi chú
+![Guide](/Workshop/images/5-Workshop/lambda-4.PNG)
 
-1. Giữ toàn bộ handler trong một source file để triển khai đơn giản.
-2. Processor ghi review sau khi upload từ S3.
-3. Analyzer chạy Comprehend và có thể gọi OpenRouter, sau đó gửi email hoàn thành qua SES.
-4. API function phục vụ REST request và digest hằng ngày.
+11. Thêm các biến môi trường `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE` và `RAW_BUCKET`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-5.PNG)
+
+12. Cấu hình **Asynchronous invocation** để sử dụng **Dead-letter queue (DLQ)** là `lambda-dlq`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-6.PNG)
+
+### 2. Tạo hàm Analyzer
+
+1. Tạo Lambda thứ hai với tên `review-sentiment-analyzer-analyzer`.
+2. Chọn **Python 3.11** và sử dụng IAM role hiện có `sentiment-analyzer-role`.
+3. Dán lại cùng deployment package và chọn **Deploy**.
+4. Đặt **Handler** thành `lambda_function.lambda_handler_sentiment_analyzer`.
+5. Đặt **Timeout** là **2 minutes** và **Memory** là **1024 MB**.
+6. Thêm các biến môi trường `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `OPENROUTER_MODEL` và `OPENROUTER_API_KEY_SECRET_NAME`.
+7. Cấu hình **Asynchronous invocation** để sử dụng **Dead-letter queue (DLQ)** là `lambda-dlq`.
+
+### 3. Tạo hàm API
+
+1. Tạo Lambda thứ ba với tên `review-sentiment-analyzer-api`.
+2. Chọn **Python 3.11** và sử dụng IAM role hiện có `api-handler-role`.
+3. Dán cùng deployment package và chọn **Deploy**.
+4. Đặt **Handler** thành `lambda_function.lambda_handler_api`.
+5. Đặt **Timeout** là **30 seconds** và **Memory** là **256 MB**.
+6. Thêm các biến môi trường `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE`, `RAW_BUCKET` và `CORS_ALLOWED_ORIGIN`.
+7. Cấu hình **Asynchronous invocation** để sử dụng **Dead-letter queue (DLQ)** là `lambda-dlq`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-7.PNG)
+
+### Quy trình hoàn thành phân tích
+
+Sau khi được kích hoạt, Lambda **Analyzer** sẽ thực hiện quy trình sau:
+
+1. Xử lý tất cả các bản ghi review từ batch của **DynamoDB Streams**.
+2. Với mỗi review:
+   - Thực hiện phân tích cảm xúc bằng **Amazon Comprehend**.
+   - Nếu được yêu cầu, lấy thêm phân tích chuyên sâu từ **OpenRouter**.
+   - Cập nhật kết quả phân tích vào bản ghi review.
+   - Xác định người tải lên review thông qua trường `UploadedBy`.
+   - Cập nhật bộ đếm số lượng review theo từng nhóm cảm xúc (**Positive**, **Neutral**, **Negative**, **Mixed**).
+3. Sau khi xử lý toàn bộ bản ghi:
+   - Ghi log tổng kết quá trình phân tích.
+   - Nhóm các review theo người tải lên, sau đó theo từng sản phẩm.
+   - Tính số lượng review thuộc từng nhóm cảm xúc cho mỗi cặp người dùng và sản phẩm.
+   - Gửi email tổng kết riêng cho từng người dùng thông qua **Amazon SES** đối với mỗi sản phẩm mà họ đã tải lên.
+   - Email sẽ bao gồm kết quả phân tích theo đúng định dạng yêu cầu.
+
+### Lưu ý
+
+1. Giữ cả ba **handler** trong cùng một tệp mã nguồn để việc triển khai được đơn giản hơn.
+2. Lambda **Processor** ghi các bản ghi review sau khi dữ liệu được tải lên Amazon S3.
+3. Lambda **Analyzer** thực hiện phân tích bằng **Amazon Comprehend**, có thể gọi thêm **OpenRouter**, sau đó gửi email thông báo hoàn thành thông qua **Amazon SES**.
+4. Lambda **API** phục vụ các yêu cầu REST API và tác vụ gửi báo cáo tổng hợp hằng ngày (Daily Digest).
 
 ### Kết quả mong đợi
 
-Ba Lambda function phải tồn tại, dùng đúng role, và sẵn sàng cho bước nối event source tiếp theo. Function analyzer nên được cấu hình để gửi email qua Amazon SES khi analysis hoàn thành.
+Sau khi hoàn thành, cả ba Lambda function sẽ được tạo thành công, sử dụng đúng IAM role và sẵn sàng để cấu hình **Event Source Mapping** ở phần tiếp theo.
+
+Lambda **Analyzer** cũng sẽ được cấu hình để gửi email thông báo hoàn thành quá trình phân tích thông qua **Amazon SES**.

@@ -30,14 +30,31 @@ Create the three Lambda handlers that power the ingestion, analysis, and API flo
 2. Select **Author from scratch**.
 3. Name the function `review-sentiment-analyzer-processor`.
 4. Choose Python 3.11 and the default x86_64 architecture.
+
+![Guide](/Workshop/images/5-Workshop/lambda-1.PNG)
+
 5. Use the existing role `review-processor-role`.
 6. Create the function.
 7. Replace the default code with the full contents of `01_lambda_functions.py`.
 8. Deploy the code.
+
+![Guide](/Workshop/images/5-Workshop/lambda-2.PNG)
+
 9. Open **Runtime settings** and set the handler to `lambda_function.lambda_handler_review_processor`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-3.PNG)
+
 10. Set timeout to 1 minute and memory to 512 MB.
+
+![Guide](/Workshop/images/5-Workshop/lambda-4.PNG)
+
 11. Add the environment variables for `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE`, and `RAW_BUCKET`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-5.PNG)
+
 12. Configure the asynchronous invocation DLQ to use `lambda-dlq`.
+
+![Guide](/Workshop/images/5-Workshop/lambda-6.PNG)
 
 ### 2. Create the analyzer function
 
@@ -47,8 +64,7 @@ Create the three Lambda handlers that power the ingestion, analysis, and API flo
 4. Set the handler to `lambda_function.lambda_handler_sentiment_analyzer`.
 5. Set timeout to 2 minutes and memory to 1024 MB.
 6. Add `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `OPENROUTER_MODEL`, and `OPENROUTER_API_KEY_SECRET_NAME`.
-7. Configure the same DLQ.
-8. **Important**: This function now uses Amazon SES for user notifications instead of SNS. No SNS topic ARN is needed.
+7. Configure the asynchronous invocation DLQ to use `lambda-dlq`.
 
 ### 3. Create the API function
 
@@ -58,9 +74,11 @@ Create the three Lambda handlers that power the ingestion, analysis, and API flo
 4. Set the handler to `lambda_function.lambda_handler_api`.
 5. Set timeout to 30 seconds and memory to 256 MB.
 6. Add `REVIEWS_TABLE`, `PRODUCTS_TABLE`, `USERS_TABLE`, `RAW_BUCKET`, and `CORS_ALLOWED_ORIGIN`.
-7. Configure the same DLQ.
+7. Configure the asynchronous invocation DLQ to use `lambda-dlq`.
 
-### Analysis completion flow (updated)
+![Guide](/Workshop/images/5-Workshop/lambda-7.PNG)
+
+### Analysis completion flow
 
 The analyzer function now follows this flow when processing reviews:
 1. Process all review records from the DynamoDB stream batch

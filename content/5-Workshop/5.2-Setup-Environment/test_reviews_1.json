@@ -1,0 +1,137 @@
+[
+  {
+    "product_id": "PROD-001",
+    "user_id": "USER-001",
+    "review_text": "Amazing product! Exceeded all my expectations. The quality is outstanding and it arrived much faster than expected. Highly recommend to everyone!",
+    "rating": 5,
+    "title": "Best purchase ever!",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-001",
+    "user_id": "USER-002",
+    "review_text": "Good product overall. Quality is decent and price is reasonable. Only minor issue is that the packaging could be better, but the product itself is solid.",
+    "rating": 4,
+    "title": "Good value",
+    "source": "amazon",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-001",
+    "user_id": "USER-003",
+    "review_text": "Average product. Does what it's supposed to do but nothing special. There are better alternatives at similar price points.",
+    "rating": 3,
+    "title": "Okay, not great",
+    "source": "website",
+    "verified_purchase": false
+  },
+  {
+    "product_id": "PROD-001",
+    "user_id": "USER-004",
+    "review_text": "Not satisfied with this purchase. The product broke after just two weeks of normal use. Customer service was unhelpful when I tried to get a refund. Very disappointed.",
+    "rating": 2,
+    "title": "Poor quality and service",
+    "source": "amazon",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-001",
+    "user_id": "USER-005",
+    "review_text": "TERRIBLE! Complete waste of money. The product arrived damaged, stopped working after one day, and the seller refuses to respond to my messages. DO NOT BUY!",
+    "rating": 1,
+    "title": "Waste of money!",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-002",
+    "user_id": "USER-006",
+    "review_text": "Fantastic investment for my home! The build quality is excellent and customer support answered all my questions. Would definitely buy from them again.",
+    "rating": 5,
+    "title": "Excellent product and service!",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-002",
+    "user_id": "USER-007",
+    "review_text": "Pretty good product. Works as advertised. Some minor design issues but overall satisfied with the purchase.",
+    "rating": 4,
+    "title": "Satisfied customer",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-002",
+    "user_id": "USER-008",
+    "review_text": "It's okay. Does the job but feels a bit overpriced. There might be cheaper alternatives that are just as good.",
+    "rating": 3,
+    "title": "Fair product",
+    "source": "website",
+    "verified_purchase": false
+  },
+  {
+    "product_id": "PROD-002",
+    "user_id": "USER-009",
+    "review_text": "Disappointed with this product. The instructions were unclear and setup was a nightmare. Performance is mediocre at best.",
+    "rating": 2,
+    "title": "Frustrating experience",
+    "source": "amazon",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-002",
+    "user_id": "USER-010",
+    "review_text": "Absolutely horrible! Stopped working within hours. Tried to return it but company makes it impossibly difficult. Avoid at all costs!",
+    "rating": 1,
+    "title": "Avoid this product!",
+    "source": "amazon",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-003",
+    "user_id": "USER-011",
+    "review_text": "Love this! Perfect for what I needed. Great quality, good price, and fast shipping. Couldn't ask for more!",
+    "rating": 5,
+    "title": "Perfect!",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-003",
+    "user_id": "USER-012",
+    "review_text": "Good product. Met my expectations. Would recommend to friends.",
+    "rating": 4,
+    "title": "Good product",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-003",
+    "user_id": "USER-013",
+    "review_text": "It's fine. Nothing special but gets the job done.",
+    "rating": 3,
+    "title": "Okay",
+    "source": "website",
+    "verified_purchase": false
+  },
+  {
+    "product_id": "PROD-003",
+    "user_id": "USER-014",
+    "review_text": "Not happy with this purchase. Quality issues and poor customer service.",
+    "rating": 2,
+    "title": "Disappointed",
+    "source": "website",
+    "verified_purchase": true
+  },
+  {
+    "product_id": "PROD-003",
+    "user_id": "USER-015",
+    "review_text": "Worst purchase ever! Complete fraud. Nothing like the description. SCAM!",
+    "rating": 1,
+    "title": "SCAM!",
+    "source": "amazon",
+    "verified_purchase": true
+  }
+]

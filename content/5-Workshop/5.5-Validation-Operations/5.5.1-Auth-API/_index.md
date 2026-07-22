@@ -29,13 +29,23 @@ Create the Cognito and API Gateway surface that exposes ReviewSentinal to users.
 1. Open **Cognito** → **Create user pool**.
 2. Choose **Single-page application (SPA)** as the application type.
 3. Name the application `review-sentiment-analyzer-client`.
-4. Use **Email** only for sign-in identifiers.
+4. Use **Email** and **Username** for sign-in identifiers.
 5. Enable self-registration for the demo build.
 6. Require both `email` and `name` at sign-up.
+
+![Guide](/Workshop/images/5-Workshop/auth-1.PNG)
+
 7. Set the callback/return URL to `http://localhost:3000/callback`.
+
+![Guide](/Workshop/images/5-Workshop/auth-2.PNG)
+
 8. Choose a Hosted UI domain prefix and create the user directory.
 9. After creation, open the app client settings and add `http://localhost:3000/logout` as a sign-out URL.
 10. Enable `ALLOW_ADMIN_USER_PASSWORD_AUTH` if you plan to use the CLI test flow later.
+
+![Guide](/Workshop/images/5-Workshop/auth-3.PNG)
+
+![Guide](/Workshop/images/5-Workshop/auth-4.PNG)
 
 ### 2. Record the identifiers you will reuse
 
@@ -47,17 +57,27 @@ Create the Cognito and API Gateway surface that exposes ReviewSentinal to users.
 
 1. Open **API Gateway** and choose **Create API**.
 2. Select **REST API** and create a **New API**.
+
+![Guide](/Workshop/images/5-Workshop/auth-6.PNG)
+
 3. Name the API `review-sentiment-analyzer-api`.
 4. Keep the endpoint type **Regional**.
 5. Create the API.
 
+![Guide](/Workshop/images/5-Workshop/auth-7.PNG)
+
 ### 4. Add the Cognito authorizer
 
 1. In the left sidebar, open **Authorizers**.
+
+![Guide](/Workshop/images/5-Workshop/auth-8.PNG)
+
 2. Create a new authorizer named `cognito-authorizer`.
 3. Choose **Cognito** as the type.
 4. Attach the user pool you just created.
 5. Set the token source to `Authorization`.
+
+![Guide](/Workshop/images/5-Workshop/auth-9.PNG)
 
 ### 5. Build the resource tree
 
@@ -67,12 +87,37 @@ Create the Cognito and API Gateway surface that exposes ReviewSentinal to users.
 4. Under `reviews`, create `{review_id}`.
 5. Create the top-level `/upload` and `/analyze` resources.
 
-### 6. Add methods and integrations
+![Guide](/Workshop/images/5-Workshop/auth-10.PNG)
 
-1. Add the required methods for each resource listed in the workshop.
-2. Use Lambda proxy integration.
-3. Point every method at `review-sentiment-analyzer-api`.
-4. Keep the authorization on the product, upload, and analysis routes set to `cognito-authorizer`.
+### 6. Add methods and integrations
+```
+/
+└── products                       (GET, POST)
+    └── {id}                       (DELETE)
+        ├── reviews                 (GET)
+        │   └── {review_id}         (DELETE)
+        └── analytics               (GET)
+/upload                            (POST)
+/analyze                           (POST)
+```
+
+For **every** method (`GET /products`, `POST /products`, `DELETE /products/{id}`, `GET /products/{id}/reviews`, `DELETE /products/{id}/reviews/{review_id}`, `GET /products/{id}/analytics`, `POST /upload`, `POST /analyze`):
+1. On the resource, **Create method**
+2. Method type: as above
+3. Integration type: **Lambda function**
+4. **Lambda proxy integration**: toggle **ON**
+5. Response transfer mode: **Buffered**
+6. Lambda function: `review-sentiment-analyzer-api`
+7. Leave Method request settings (query params/headers/body) empty
+8. **Create method**
+
+![Guide](/Workshop/images/5-Workshop/auth-11.PNG)
+
+9. Open the method afterward → find **Authorization** under its method request settings → set to `cognito-authorizer`
+
+![Guide](/Workshop/images/5-Workshop/auth-12.PNG)
+
+![Guide](/Workshop/images/5-Workshop/auth-13.PNG)
 
 ### 7. Configure CORS
 
@@ -81,10 +126,17 @@ Create the Cognito and API Gateway surface that exposes ReviewSentinal to users.
 3. Add `Default 4XX` and `Default 5XX` gateway responses.
 4. Confirm the console creates the `OPTIONS` methods automatically.
 
+![Guide](/Workshop/images/5-Workshop/auth-14.PNG)
+
 ### 8. Deploy the API
 
 1. Deploy a new `dev` stage.
+
+![Guide](/Workshop/images/5-Workshop/auth-15.PNG)
+
 2. Copy the Invoke URL from the stage page.
+
+![Guide](/Workshop/images/5-Workshop/auth-16.PNG)
 
 ### Notes
 

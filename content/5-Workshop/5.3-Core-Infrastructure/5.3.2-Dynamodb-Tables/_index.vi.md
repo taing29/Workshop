@@ -1,87 +1,150 @@
 ---
-title: "5.3.2 DynamoDB tables"
+title: "5.3.2 Bảng DynamoDB"
 weight: 2
 ---
 
-# Các bảng DynamoDB cho ReviewSentinal
+# Tạo các bảng DynamoDB cho ReviewSentinal
 
 ## Tổng quan
 
-Tạo bốn bảng lưu review, sản phẩm, người dùng và theo dõi các công việc phân tích. Bảng `Reviews` là bảng chính và cần stream cùng GSI.
+Trong phần này, bạn sẽ tạo bốn bảng DynamoDB dùng để lưu trữ dữ liệu phân tích, đánh giá sản phẩm, thông tin sản phẩm và người dùng.
 
-### Các bảng cần tạo
+Bảng `Reviews` là bảng chính của hệ thống và cần được cấu hình thêm **DynamoDB Streams** cùng với **Global Secondary Index (GSI)**. Ngoài ra, bảng `Analyses` được sử dụng để theo dõi trạng thái và thông tin của các tác vụ phân tích.
+
+## Các bảng cần tạo
 
 - `Analyses`
 - `Reviews`
 - `Products`
 - `Users`
 
-### Bảng Analyses
+## Tạo bảng Analyses
 
-1. Mở DynamoDB và chọn **Create table**.
-2. Tên bảng: `Analyses`.
-3. Partition:analysisAustin
-3. Khóa **On-demand**.
-5. Để Default encryption key do DynamoDB quản lý5. Tạo t1. Mở 3.6. Chọn **Customize**.
-7. Đặt capacity là **On-demand**.
-8. Để encryption theo key do DynamoDB quản lý mặc định.
-9. Tạo bảng.
+1. Mở dịch vụ **Amazon DynamoDB** và chọn **Create table**.
+2. Nhập tên bảng: `Analyses`.
+3. Thiết lập **Partition key**:
+   - `AnalysisID`
+   - Kiểu dữ liệu: **String**
+4. Chọn **Customize**.
+5. Chọn chế độ dung lượng **On-demand**.
+6. Giữ nguyên tùy chọn mã hóa mặc định (**DynamoDB-managed key**).
+7. Chọn **Create table**.
 
-### Bảng Reviews
+![Guide](/Workshop/images/5-Workshop/dynamodb-1.PNG)
 
-1. Mở DynamoDB và chọn **Create table**.
-2. Tên bảng: `Reviews`.
-3. Khóa phân vùng: `ProductID` kiểu String.
-4. Khóa sắp xếp: `ReviewID` kiểu String.
+## Tạo bảng Reviews
+
+1. Mở **Amazon DynamoDB** và chọn **Create table**.
+2. Nhập tên bảng: `Reviews`.
+3. Thiết lập **Partition key**:
+   - `ProductID`
+   - Kiểu dữ liệu: **String**
+4. Thiết lập **Sort key**:
+   - `ReviewID`
+   - Kiểu dữ liệu: **String**
 5. Chọn **Customize**.
-6. Đặt capacity là **On-demand**.
-7. Để encryption theo key do DynamoDB quản lý mặc định.
-8. Tạo bảng.
+6. Chọn chế độ dung lượng **On-demand**.
+7. Giữ nguyên tùy chọn mã hóa mặc định (**DynamoDB-managed key**).
+8. Chọn **Create table**.
 
-Sau khi tạo xong:
+![Guide](/Workshop/images/5-Workshop/dynamodb-2.PNG)
+
+### Cấu hình sau khi tạo bảng
+
+#### Bật DynamoDB Streams
 
 1. Mở bảng `Reviews`.
-2. Bật **DynamoDB Streams** ở tab **Exports and streams**.
-3. Chọn stream view type là **New image**.
-4. Vào tab **Backups** và bật **Point-in-time recovery**.
-5. Tạo GSI tên `SentimentIndex`.
-6. Dùng `ProductID` làm partition key và `Sentiment` làm sort key.
-7. Chỉ project các thuộc tính `ReviewText`, `Rating`, `CreatedAt`, `KeyPhrases`, và `UserID`.
-8. **Cập nhật tăng dần (không cần sửa đổi dữ liệu hiện có)**: Khi đặt mục mới, bao gồm thuộc tính `AnalysisID` (là thuộc tính thường, không phải phần của khóa).
-9. **Tạo GSI cho truy vấn phân tích**: Tạo chỉ mục phụ.global lần tên `AnalysisIndex` trên bảng `Reviews`:
-   - Khóa phân vùng: `AnalysisID` (String)
-   - Khóa sắp xếp: Để trống (hoặc sử dụng `ReviewID` nếu cần sắp xếp trong phân tích)
-   - Thuộc tính đượcฉาย: `KEYS_ONLY` (hoặc `ALL` nếu cần cho các truy vấn của bạn)
+2. Chuyển sang tab **Exports and streams**.
+3. Bật **DynamoDB Streams**.
+4. Chọn **New image** làm **Stream view type**.
 
-### Bảng Products
+![Guide](/Workshop/images/5-Workshop/dynamodb-3.PNG)
 
-1. Tạo bảng tên `Products`.
-2. Dùng `ProductID` làm partition key.
-3. Không dùng sort key.
-4. Chọn **On-demand**.
-5. Bật point-in-time recovery sau khi tạo.
+#### Bật Point-in-Time Recovery (PITR)
 
-### Bảng Users
+1. Chuyển sang tab **Backups**.
+2. Bật **Point-in-time recovery**.
 
-1. Tạo bảng tên `Users`.
-2. Dùng `UserID` làm partition key.
-3. Không dùng sort key.
-4. Chọn **On-demand**.
-5. Bật point-in-time recovery sau khi tạo.
+![Guide](/Workshop/images/5-Workshop/dynamodb-4.PNG)
 
-### Ghi chú
+#### Tạo Global Secondary Index (GSI)
 
-- Stream của bảng `Reviews` cần cho trigger của Lambda sentiment analyzer.
-- Giữ đúng tên bảng vì biến môi trường và IAM policy phía sau sẽ tham chiếu trực tiếp.
-- GSI được giữ tối giản để chỉ trả chi phí cho những gì code thực sự dùng.
-- Thuộc tính `AnalysisID` trong `Reviews` là additive - nó không thay đổi cấu trúc bảng hiện có, vì vậy dữ liệu hiện tại không bị ảnh hưởng.
+1. Chuyển sang tab **Indexes**.
 
-### Kết quả mong đợi
+##### GSI 1: SentimentIndex
 
-Bốn bảng phải tồn tại: `Analyses`, `Reviews`, `Products`, và `Users`.
-- Bảng `Reviews` và `Analyses` phải bật streams (cho `Reviews` - cần cho trigger Lambda)
-- Tất cả bảng phải là on-demand với bật point-in-time recovery
-- Bảng `Reviews` có:
-  * Khóa chính gốc (ProductID, ReviewID)
-  * GSIs: `SentimentIndex` và `AnalysisIndex`
-  * Các mục bao gồm thuộc tính `AnalysisID` (được thêm vào)
+Tạo Global Secondary Index có tên **SentimentIndex** với cấu hình:
+
+- **Partition key:** `ProductID` (String)
+- **Sort key:** `Sentiment`
+
+![Guide](/Workshop/images/5-Workshop/dynamodb-5.PNG)
+
+- **Projected attributes:**
+  - `ReviewText`
+  - `Rating`
+  - `CreatedAt`
+  - `KeyPhrases`
+  - `UserID`
+
+![Guide](/Workshop/images/5-Workshop/dynamodb-6.PNG)
+
+##### GSI 2: AnalysisIndex
+
+Tạo Global Secondary Index có tên **AnalysisIndex** với cấu hình:
+
+- **Partition key:** `AnalysisID` (String)
+- **Sort key:** Để trống (hoặc sử dụng `ReviewID` nếu cần sắp xếp các review trong cùng một phiên phân tích)
+
+![Guide](/Workshop/images/5-Workshop/dynamodb-7.PNG)
+
+- **Projected attributes:**
+  - `KEYS_ONLY` (hoặc `ALL` nếu ứng dụng của bạn cần truy xuất toàn bộ dữ liệu)
+
+![Guide](/Workshop/images/5-Workshop/dynamodb-8.PNG)
+
+## Tạo bảng Products
+
+1. Tạo bảng có tên `Products`.
+2. Sử dụng `ProductID` làm **Partition key**.
+3. Không sử dụng **Sort key**.
+4. Chọn chế độ dung lượng **On-demand**.
+5. Sau khi tạo bảng, bật **Point-in-time recovery**.
+
+## Tạo bảng Users
+
+1. Tạo bảng có tên `Users`.
+2. Sử dụng `UserID` làm **Partition key**.
+3. Không sử dụng **Sort key**.
+4. Chọn chế độ dung lượng **On-demand**.
+5. Sau khi tạo bảng, bật **Point-in-time recovery**.
+
+## Lưu ý
+
+- **DynamoDB Streams** của bảng `Reviews` là bắt buộc để kích hoạt Lambda thực hiện phân tích cảm xúc (Sentiment Analysis) mỗi khi có review mới.
+- Giữ nguyên chính xác tên các bảng vì các bước cấu hình tiếp theo (Environment Variables và IAM Policies) sẽ tham chiếu trực tiếp đến các tên này.
+- Các **Global Secondary Index (GSI)** được thiết kế tối giản nhằm giảm chi phí lưu trữ và truy vấn, chỉ bao gồm những thuộc tính mà ứng dụng thực sự sử dụng.
+- Thuộc tính `AnalysisID` trong bảng `Reviews` chỉ là một thuộc tính bổ sung do ứng dụng thêm vào khi ghi dữ liệu. Việc này **không làm thay đổi schema hiện có** của bảng nên sẽ không ảnh hưởng đến dữ liệu đã tồn tại.
+
+## Kết quả mong đợi
+
+Sau khi hoàn thành, bạn sẽ có bốn bảng DynamoDB:
+
+- `Analyses`
+- `Reviews`
+- `Products`
+- `Users`
+
+Trong đó:
+
+- Tất cả các bảng đều sử dụng chế độ **On-demand**.
+- Tất cả các bảng đều đã bật **Point-in-time recovery (PITR)**.
+- Bảng `Reviews` đã được cấu hình:
+  - Khóa chính:
+    - `ProductID` (Partition key)
+    - `ReviewID` (Sort key)
+  - Hai Global Secondary Index:
+    - `SentimentIndex`
+    - `AnalysisIndex`
+  - DynamoDB Streams với chế độ **New image**
+  - Mỗi bản ghi review sẽ có thêm thuộc tính `AnalysisID` do ứng dụng tự động thêm vào khi thực hiện phân tích.

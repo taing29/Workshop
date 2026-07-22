@@ -16,7 +16,6 @@ This section covers the user-facing integration layer: API Gateway, Cognito, COR
 2. [Monitoring](5.5.2-monitoring/)
 3. [Frontend checks](5.5.3-frontend-checks/)
 4. [Ready to launch](5.5.4-ready-to-launch/)
-5. [Sample test data](5.5.5-sample-test-data/)
 
 #### Configure access
 

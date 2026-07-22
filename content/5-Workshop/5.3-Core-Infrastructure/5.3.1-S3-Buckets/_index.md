@@ -19,10 +19,18 @@ Create the raw upload bucket first. The application uploads review files directl
 2. Enter the bucket name using your actual AWS account ID.
 3. Select **Asia Pacific (Singapore) ap-southeast-1**.
 4. Keep **ACLs disabled**.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-1.PNG)
+
 5. Leave **Block all public access** enabled.
 6. Enable **Bucket Versioning**.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-2.PNG)
+
 7. Enable default encryption with **SSE-S3**.
 8. Create the bucket.
+
+
 
 ### Lifecycle rule
 
@@ -31,6 +39,8 @@ Create the raw upload bucket first. The application uploads review files directl
 3. Apply it to all objects.
 4. Expire current versions after 90 days.
 5. Permanently delete noncurrent versions after 30 days.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-4.PNG)
 
 ### CORS configuration
 
@@ -49,6 +59,8 @@ Create the raw upload bucket first. The application uploads review files directl
 ]
 ```
 4. Save the configuration.
+
+![Guide](/Workshop/images/5-Workshop/s3-bucket-5.PNG)
 
 ### Notes
 

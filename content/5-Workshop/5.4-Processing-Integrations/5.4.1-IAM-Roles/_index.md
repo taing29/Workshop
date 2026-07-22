@@ -31,9 +31,15 @@ Create one least-privilege IAM role for each Lambda function used by ReviewSenti
 2. Choose **Create role**.
 3. Select **AWS service** as the trusted entity.
 4. Choose **Lambda** as the use case.
+
+![Guide](/Workshop/images/5-Workshop/iam-1.PNG)
+
 5. Continue without attaching any AWS managed policy.
 6. Name the role `review-processor-role` and create it.
 7. Open the role and create an inline policy in the **JSON** editor.
+
+![Guide](/Workshop/images/5-Workshop/iam-2.PNG)
+
 8. Paste the following policy and replace `<ACCOUNT_ID>` with your real account ID:
 ```json
 {
@@ -74,6 +80,9 @@ Create one least-privilege IAM role for each Lambda function used by ReviewSenti
     }
   ]
 ```
+
+![Guide](/Workshop/images/5-Workshop/iam-3.PNG)
+
 9. Save the policy as `review-processor-policy`.
 
 ### 2. Create the sentiment analyzer role
@@ -204,6 +213,8 @@ Create one least-privilege IAM role for each Lambda function used by ReviewSenti
 ```
 5. Save the policy as `api-handler-policy`.
 6. Replace `<ACCOUNT_ID>` and the secret ARN with your real values in the policy.
+
+![Guide](/Workshop/images/5-Workshop/iam-4.PNG)
 
 ### Notes
 
